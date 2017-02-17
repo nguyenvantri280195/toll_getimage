@@ -16,7 +16,7 @@ class CreateFolderTable extends Migration
         //
         Schema::create('folder', function(Blueprint $table){
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('name');
             $table->integer('user_id')->unsigned(); 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('link_id')->nullable();

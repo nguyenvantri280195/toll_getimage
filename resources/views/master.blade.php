@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html1>
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -62,17 +62,19 @@
                   </li>
                 </ul>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-desktop"></i> Người dùng <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="/admin/folder/danhsach"><i class="fa fa-desktop"></i> Thư mục</a>
+                  </li>
+                </ul>
+                @if(isset($userss) && $userss->level == 1)
+                 <ul class="nav side-menu">
+                  <li><a><i class="fa fa-bar-chart-o"></i> Người dùng <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="/admin/user/list">Danh sách</a></li>
                       <li><a href="/admin/user/add">Thêm</a></li>
                     </ul>
                   </li>
                 </ul>
-                <ul class="nav side-menu">
-                  <li><a href="/admin/folder/danhsach"><i class="fa fa-desktop"></i> Thư mục</a>
-                  </li>
-                </ul>
+                @endif
               </div>
             </div>
             <!-- /sidebar menu -->
@@ -159,7 +161,7 @@
         });
       </script>
     @endif
-    <!-- Tạo thư mục mới -->
+    Tạo thư mục mới
     <script>
       $(document).ready(function(){
         $('#create').click(function(){
@@ -193,10 +195,15 @@
         });
       });
     </script>
-    <!-- End tạo mới thư mục -->
 
     <script type="text/javascript">
         $("div.alert").delay(6000).slideUp();
     </script>
+{{-- <script type="text/javascript">
+     var a  = document.createElement('a'); 
+     a.href = 'http://ih0.redbubble.net/image.327545409.2977/flat,750x1000,075,t.u1.jpg';
+     a.download = 'tri.png';
+     a.click();
+ </script> --}}
   </body>
 </html>

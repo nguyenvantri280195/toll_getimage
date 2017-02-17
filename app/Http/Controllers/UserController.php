@@ -54,13 +54,16 @@ class UserController extends Controller
                 $pass = Hash::make($request->password);
                 $user->password = $pass;
               }
-              $this->validate($request,
+              if($request->email != $user->email){
+                $this->validate($request,
                 [
-                    'email'             =>  'required',
+                    'email'             =>  'required|unique:users,email',
                 ],
                 [
                     'email.required'    =>  'Vui lòng nhập email',
+                    'email.unique'      => 'Email đã tồn tại'
                 ]);
+              }
               $user->email = $request->email;
               $user->level = $request->rdoLevel;
               $user->save();
@@ -81,13 +84,16 @@ class UserController extends Controller
                 $pass = Hash::make($request->password);
                 $user->password = $pass;
               }
-              $this->validate($request,
+              if($request->email != $user->email){
+                $this->validate($request,
                 [
-                    'email'             =>  'required',
+                    'email'             =>  'required|unique:users,email',
                 ],
                 [
                     'email.required'    =>  'Vui lòng nhập email',
+                    'email.unique'      => 'Email đã tồn tại'
                 ]);
+              }
               $user->email = $request->email;
               $user->level = $request->rdoLevel;
               $user->save();

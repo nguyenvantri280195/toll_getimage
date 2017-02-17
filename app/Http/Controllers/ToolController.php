@@ -7,101 +7,6 @@ use App\Link;
 use Illuminate\Support\Facades\Auth;
 class ToolController extends Controller
 {
-    //
-  //   function getHinh()
-  //   {
-  //   	return view('getHinh');
-
-  //   }
-
-  //   function postHinh(Request $request)
-  //   {
-  //   	function GetImageFromUrl($link) 
-		// {		 
-		// 	$ch = curl_init();		 
-		// 	curl_setopt($ch, CURLOPT_POST, 0);		 
-		// 	curl_setopt($ch,CURLOPT_URL,$link);		 
-		// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);		 
-		// 	$result=curl_exec($ch);		 
-		// 	curl_close($ch);	 
-		// 	return $result;
-		// }
-
-  //   	$link = $request->link;
-
-  //   	//link không có biến page
-		// if(strpos($link, "page=") == false){
-		// 	$a = strstr($link, "&", true);
-		// 	$b = strstr($link, "&");
-		// 	$dem = 0;	
-		// 	for($i=1; $i<=100;$i++){
-		// 		$link = $a."&page=".$i.$b;
-		// 		$str = file_get_contents($link);
-		// 		set_time_limit(60);
-		// 		$dom = new \DOMDocument;
-		// 		@$dom->loadHTML($str);
-		// 		$arr['anh']=[];
-		// 		foreach ($dom->getElementsByTagName('a') as $node) {
-		//     		$hinh= $node->getAttribute('style');
-		//     		$hinh2 = strstr($hinh, "background-image");
-		//     		if(strlen($hinh2) > 1){
-		//     			$dem++;
-		//     			$test = strstr($hinh2, "http");
-		//     			$test2 = trim($test, ";");
-		//     			$test3 = trim($test2, ")");
-		//     			$tieude = $node->getAttribute('title');
-		//     			$tenanh = preg_replace('/[^a-zA-Z0-9 ]/','', $tieude);
-		//     			$tenanh1 = $tenanh.".jpg";
-		//     			$arr['anh']=$tenanh1;
-		//     			// echo $dem.".<a href='".$test3."'>".$tenanh1."</a>";
-		//     			// echo "</br>";
-		//     			// //Lưu ảnh
-		// 				/*$contents=GetImageFromUrl($test3);
-		// 				$savefile = fopen($tenanh1, 'w');
-		// 				fwrite($savefile, $contents);
-		// 				fclose($savefile);*/
-		//     		}
-		// 		}
-		// 		//dd($arr['anh']);	
-		// 	}
-		// }
-
-		// //link có biến page
-		// $str = file_get_contents($link);
-		// $dom = new \DOMDocument;
-		// @$dom->loadHTML($str);
-		// $dem = 0;
-		// $mang['hinhanh']=array();
-		// foreach ($dom->getElementsByTagName('a') as $node) {
-  //   		$hinh= $node->getAttribute('style');
-  //   		$hinh2 = strstr($hinh, "background-image");
-  //   		if(strlen($hinh2) > 1){
-  //   			$dem++;
-  //   			$test = strstr($hinh2, "http");
-  //   			$test2 = trim($test, ";");
-  //   			$test3 = trim($test2, ")");
-  //   			$test4 = str_replace('220x294','750x1000',$test3);
-  //   			$tieude = $node->getAttribute('title');
-  //   			$tenanh = preg_replace('/[^a-zA-Z0-9 ]/','', $tieude);
-  //   			$tenanh1 = $tenanh.".jpg";
-  //   			$mang['hinhanh'][$dem]['ten']=$tenanh1;
-  //   			$mang['hinhanh'][$dem]['link']=$test4;
-  //   			// echo $dem.".<a href='".$test4."'>".$tenanh1."</a>";
-  //   			// echo "</br>";
-    			
-  //   			//Lưu ảnh
-		// 		/*$contents=GetImageFromUrl($test3);
-		// 		$savefile = fopen($tenanh1, 'w');
-		// 		fwrite($savefile, $contents);
-		// 		fclose($savefile);*/
-  //   		}
-		// }
-		// return redirect('/admin/getimage/get')->with('img',$mang);
-		// // return view('getHinh',$mang);
-  //   }
-
-    //Search
-
     function getSearch()
     {
     	return view('search');
@@ -199,6 +104,7 @@ class ToolController extends Controller
 			$str = file_get_contents($link1);
 			$dom = new \DOMDocument;
 			@$dom->loadHTML($str);
+			set_time_limit(100);
 			foreach($dom->getElementsByTagName('a') as $node)
 			{
 				$hinh= $node->getAttribute('data-lazyload-bg-src');

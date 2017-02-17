@@ -32,7 +32,7 @@
              <div class="col-md-12">
                @foreach($nameFolder as $item)
                  <div class="col-md-2" style="float: left; margin-bottom: 10px;">
-                    <a href="/admin/folder/list/1" >
+                    <a href="/admin/folder/list/{{$item['id']}}" >
                      <i class="fa fa-folder co" aria-hidden="true" style="font-size: 100px;  color: #E6B100;"></i> 
                     </a>
                     <span class="namethumuc">{{$item['name']}}</span>

@@ -33,19 +33,18 @@ Route::group(['prefix'=>'admin','middleware'=>'Login'], function(){
 	});
 	Route::group(['prefix'=>'folder'],function(){
 		Route::get('list/{id}','FolderController@getList');
-		Route::post('download/{id}','FolderController@postDownload');
+		Route::get('download/{id}','FolderController@postDownload');
 
 		Route::get('danhsach','FolderController@getDanhsach');
-		Route::get('delete/{id}','FolderController@Delete');
+		Route::get('downloadimg/{idlink}','FolderController@DownloadDetail');
+		Route::get('downloadall','FolderController@DownloadAll');
 	});
 	Route::group(['prefix'=>'link'],function(){
 		Route::get('list','LinkController@getList');
 
 		Route::post('save', 'LinkController@postSave');
-		Route::get('dowload/{id}','LinkController@getDowload');
 		Route::get('dowloaddetail/{id}','LinkController@getDowloadDetail');
 	});
-
 	Route::group(['prefix'=>'ajax'], function(){
 		Route::get('getSoTrang/{idtrang}/{sotrang}', 'AjaxController@getSoTrang');
 		Route::get('taothumuc/{tenthumuc}', 'AjaxController@TaoThuMuc');

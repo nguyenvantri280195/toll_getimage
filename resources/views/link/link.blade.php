@@ -45,7 +45,6 @@
                     <th style="text-align:center;" width="400px">Tên hình ảnh</th>
                     <th style="text-align:center;">Hình ảnh</th>
                     <th style="text-align:center;">Trạng thái</th>
-                    <th style="text-align:center;">Lưu </th>
                     <th style="text-align:center;">Chọn</th>
                   </tr>
                 </thead>
@@ -64,7 +63,6 @@
                     @else
                     <td style="text-align:center;">Chưa lưu</td>
                     @endif
-                    <td style="text-align:center;" ><a href="/admin/link/dowloaddetail/{{$Item['id']}}">Lưu hình</a></td>
                     <td style="text-align:center;"><input type="checkbox" class ="item download" name="iddel[]" value="{{$Item['id']}}"></td>
                   </tr>
                   @endforeach
